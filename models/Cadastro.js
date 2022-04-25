@@ -7,11 +7,11 @@ const Cadastro = new Schema({
         type: String,
         required: true
     },
-    email: {
+    genero: {
         type: String,
         required: true
     },
-    senha: {
+    autor: {
         type: String,
         required: true
     } 

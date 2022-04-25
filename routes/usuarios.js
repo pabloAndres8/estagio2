@@ -58,7 +58,7 @@ router.post('/registro', (req, res) => {
 
                         novoUsuario.save().then(() => {
                             req.flash('success_msg', 'Usuário criado com sucesso');
-                            res.redirect('/');
+                            res.redirect('/home');
                         }).catch((err) => {
                             req.flash('error_msg', 'Houve um erro ao criar o  usuário, tente novamente!');
                             res.redirect('/usuarios/regsitro');
@@ -79,7 +79,7 @@ router.get('/login', (req, res) => {
 
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/home',
         failureRedirect: '/usuarios/login',
         failureFlash: true
     })(req, res, next)
