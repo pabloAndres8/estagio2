@@ -1,43 +1,59 @@
- <style>
-		body{
-			background-color: purple;
-		}
-		#container{
-			background-color: black;
-		}
-	</style>
-<div class="container">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-			<div class="card-header">
-				<h3>Login: </h3>
-				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
+<style>
+	body {
+		background-color: purple
+	}
+
+	#container {
+		background-color: black;
+	}
+	#rodape {
+    background-color: rgb(37, 37, 37);
+	color: white;
+	margin-top: 220px;
+	padding: 20px;
+  }
+</style>
+<div id="principal">
+	<div class="container">
+		<div class="d-flex justify-content-center h-100">
+			<div class="card">
+				<div class="card-header">
+					<h3>Login: </h3>
+					<div class="d-flex justify-content-end social_icon">
+						<span><i class="fab fa-facebook-square"></i></span>
+						<span><i class="fab fa-google-plus-square"></i></span>
+						<span><i class="fab fa-twitter-square"></i></span>
+					</div>
+				</div>
+				<div class="card-body">
+					<form action="/usuarios/login" method="POST">
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="email" name="email" class="form-control" placeholder="E-mail" required>
+
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="senha" class="form-control" placeholder="Senha" required>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Entrar</button>
+						</div>
+					</form>
 				</div>
 			</div>
-			<div class="card-body">
-				<form action="/usuarios/login" method="POST">
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-                <input type="email" name="email" class="form-control"  placeholder="E-mail" required>	
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-                <input type="password" name="senha" class="form-control" placeholder="Senha" required> 
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Entrar</button>
-					</div>
-				</form>
-			</div>			
-		  </div>
 		</div>
 	</div>
 </div>
+</div>
+
+<footer>
+        <div id="rodape">
+            <a class="navbar-brand" href="#">TechPhone</a>
+            &copy 2022 copyright - TechPhone
+        </div>
+</footer>

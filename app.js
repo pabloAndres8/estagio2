@@ -12,6 +12,7 @@ const usuarios = require('./routes/usuarios');
 const passport = require('passport');
 require('./config/auth')(passport);
 const db = require('./config/db');
+const data = require('./data');
 
 //Configurações
 //Sessão
@@ -67,6 +68,12 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.render('home');
 });
+app.get('/teste', (req, res) => {
+    res.render('teste');
+});
+app.get('/filtrar', (req, res) => {
+    res.render('filtrar');
+});
 
 
 app.use('/usuarios', usuarios);
@@ -74,6 +81,30 @@ app.use('/usuarios', usuarios);
 app.use('/admin', admin);
 
 //Outros
+let valid;
+app.use('/filtro', (req, res, next) => {
+    const filters = req.query;
+    const filteredUsers = data.filter(user => {
+      let isValid = true;
+      for (key in filters) {
+        console.log(key, user[key], filters[key]);
+        isValid = isValid && user[key] == filters[key];
+        if(isValid){
+            if(req.query.city == 'Chicago' || req.query.age == 106){
+                res.render('home');
+            }
+            if(req.query.city == 'Metropolis' || req.query.age == 21){
+                res.render('index');
+            }
+        }
+
+      }
+      return isValid;
+    });
+    //res.send(filteredUsers);
+
+  });
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor conectado na porta ${PORT}`);
