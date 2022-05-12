@@ -47,7 +47,7 @@ app.set('view engine', 'handlebars');
 
 //Mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect(db.mongoURI).then(() => {
+mongoose.connect("mongodb+srv://techphone:25120081200pab@cluster0.j8qqd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").then(() => {
     console.log('Conectado com o mongo!');
 }).catch((err) => {
     console.log('Erro ao se conectar: ' + err);
@@ -74,6 +74,8 @@ app.get('/teste', (req, res) => {
 app.get('/filtrar', (req, res) => {
     res.render('filtrar');
 });
+
+
 
 
 app.use('/usuarios', usuarios);
