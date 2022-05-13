@@ -78,6 +78,7 @@ app.get('/filtrar', (req, res) => {
 
 
 
+
 app.use('/usuarios', usuarios);
 
 app.use('/admin', admin);
@@ -103,7 +104,7 @@ app.use('/filtro', (req, res, next) => {
       }
       return isValid;
     });
-    //res.send(filteredUsers);
+    res.send(filteredUsers);
 
   });
 
