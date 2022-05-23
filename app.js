@@ -74,7 +74,9 @@ app.get('/teste', (req, res) => {
 app.get('/filtrar', (req, res) => {
     res.render('filtrar');
 });
-
+app.get('/noticia', (req, res) => {
+    res.render('noticia');
+}); 
 
 
 
