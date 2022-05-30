@@ -255,15 +255,12 @@ app.use('/filtro', (req, res, next) => {
         }
         
       }
-      valido = isValid;
+   
       return isValid;
     });
    //res.send(filteredUsers);
  
-   if(valido){
-       res.render('erropagina');
-   }
-   else{
+  
     if(req.query.armazenamento == '16GB' && req.query.ram == '128MB' && req.query.processador == "ARM 11" && req.query.tela == "TFT LCD"){
         res.render('teste');
     }
@@ -518,12 +515,49 @@ app.use('/filtro', (req, res, next) => {
     }
    if(req.query.armazenamento == '128GB' && req.query.ram == '6GB' && req.query.processador == "Snapdragon 675 Qualcomm SDM675" && req.query.tela == "Super AMOLED"){
     res.render('filtrar83');
+    }   
+    if(req.query.armazenamento == '64GB' && req.query.ram == '6GB' && req.query.processador == "Snapdragon 845 Qualcomm SDM845" && req.query.tela == "AMOLED"){
+        res.render('filtrar84');
+    } 
+    if(req.query.armazenamento == '128GB' && req.query.ram == '8GB' && req.query.processador == "Snapdragon 855 Plus Qualcomm SDM855" && req.query.tela == "AMOLED"){
+        res.render('filtrar85');
+    }
+    if(req.query.armazenamento == '128GB' && req.query.ram == '8GB' && req.query.processador == "Snapdragon 855 Plus Qualcomm SDM855" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar86');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '8GB' && req.query.processador == "Snapdragon 865 Qualcomm SDM865" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar87');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '12GB' && req.query.processador == "Snapdragon 888 Qualcomm SM8350" && req.query.tela == "AMOLED"){
+        res.render('filtrar88');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '12GB' && req.query.processador == "Snapdragon 888 Qualcomm SM8350" && req.query.tela == "OLED"){
+        res.render('filtrar89');
+    }
+    if(req.query.armazenamento == '64GB' && req.query.ram == '3GB' && req.query.processador == "Helio P22 MediaTek MT6762" && req.query.tela == "IPS LCD"){
+        res.render('filtrar90');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "Helio P22 MediaTek MT6762" && req.query.tela == "IPS LCD"){
+        res.render('filtrar91');
+    }
+    if(req.query.armazenamento == '128GB' && req.query.ram == '8GB' && req.query.processador == "Snapdragon 865 Qualcomm SDM865" && req.query.tela == "OLED"){
+        res.render('filtrar92');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '2GB' && req.query.processador == "Snapdragon 215 Qualcomm QM215" && req.query.tela == "LCD"){
+        res.render('filtrar93');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '2GB' && req.query.processador == "Snapdragon Qualcomm SDM430" && req.query.tela == "IPS LCD"){
+        res.render('filtrar94');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "Snapdragon 450 Qualcomm SDM450" && req.query.tela == "IPS LCD"){
+        res.render('filtrar95');
+    }
+    else if(req.query.armazenamento  && req.query.ram  && req.query.processador  && req.query.tela ){
+        res.render('erropagina');
     }
     
-   }
-   res.render('erropagina');
-    
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

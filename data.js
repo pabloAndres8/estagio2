@@ -355,7 +355,7 @@ const data = [
      { id: 355, name: 'Xiaomi Mi Mix 2S', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 845 Qualcomm SDM845", tela: "IPS LCD" },
      { id: 356, name: 'Xiaomi Mi 6X', armazenamento: "64GB", ram: '4GB', processador: "Qualcomm Snapdragon 660", tela: "LTPS IPS LCD" },
      { id: 357, name: 'Xiaomi Redmi Note 5 Al Dual Camera', armazenamento: "32GB", ram: '3GB', processador: "Qualcomm Snapdragon 636", tela: "IPS LCD" },
-     { id: 358, name: 'Xiaomi Mi 8', armazenamento: "64GB", ram: '6GB', processador: "Snapdragon 845 Qualcomm SDM845", tela: "AMOLED" },
+     { id: 358, name: 'Xiaomi Mi 8', armazenamento: "64GB", ram: '6GB', processador: "Snapdragon 845 Qualcomm SDM845", tela: "AMOLED" },//
      { id: 359, name: 'Xiaomi Mi 8 SE', armazenamento: "64GB", ram: '4GB', processador: "Snapdragon 710 Qualcomm SDM710", tela: "AMOLED" },
      { id: 360, name: 'Xiaomi Mi 8 Explorer', armazenamento: "128GB", ram: '8GB', processador: "Snapdragon 845 Qualcomm SDM845", tela: "AMOLED" },
      { id: 361, name: 'Xiaomi Mi Max 3', armazenamento: "64GB", ram: '4GB', processador: "Cortex-A53 Qualcomm Snapdragon 636", tela: "IPS LCD" },
@@ -369,8 +369,8 @@ const data = [
      { id: 369, name: 'Xiaomi Mi CC9e', armazenamento: "64GB", ram: '4GB', processador: "Snapdragon 665 Qualcomm SDM665", tela: "AMOLED" },
      { id: 370, name: 'Xiaomi Mi CC9 Meitu Edition', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 710 Qualcomm SDM710", tela: "AMOLED" },
      { id: 371, name: 'Xiaomi Qin AI Life', armazenamento: "32GB", ram: '1GB', processador: "Cortex-A53 Spreadtrum SC9832E", tela: "IPS LCD" },
-     { id: 372, name: 'Xiaomi Black Shark 2 Pro', armazenamento: "128GB", ram: '8GB', processador: "Snapdragon 855 Plus Qualcomm SDM855", tela: "AMOLED" },
-     { id: 373, name: 'Xiaomi Mi 9 Pro', armazenamento: "128GB", ram: '8GB', processador: "Snapdragon 855 Plus Qualcomm SDM855", tela: "Super AMOLED" },
+     { id: 372, name: 'Xiaomi Black Shark 2 Pro', armazenamento: "128GB", ram: '8GB', processador: "Snapdragon 855 Plus Qualcomm SDM855", tela: "AMOLED" },//
+     { id: 373, name: 'Xiaomi Mi 9 Pro', armazenamento: "128GB", ram: '8GB', processador: "Snapdragon 855 Plus Qualcomm SDM855", tela: "Super AMOLED" },//
      { id: 374, name: 'Xiaomi Mi 9 Pro 5G', armazenamento: "128GB", ram: '8GB', processador: "Snapdragon 855 Plus Qualcomm SDM855", tela: "Super AMOLED" },
      { id: 375, name: 'Xiaomi Mi Mix Alpha', armazenamento: "512GB", ram: '12GB', processador: "Snapdragon 855 Plus Qualcomm SDM855", tela: "Flexible OLED" },
      { id: 376, name: 'Xiaomi Mi CC9 Pro', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 730G Qualcomm SDM730G", tela: "AMOLED" },
@@ -384,7 +384,7 @@ const data = [
      { id: 384, name: 'Xiaomi Mi 10 Ultra', armazenamento: "256GB", ram: '8GB', processador: "Snapdragon 865 Qualcomm SDM865", tela: "AMOLED" },
      { id: 385, name: 'Xiaomi Mi 10S', armazenamento: "256GB", ram: '8GB', processador: "Snapdragon 870 Qualcomm SM8250-AC", tela: "AMOLED" },
      { id: 386, name: 'Xiaomi Black Shark 4 Pro', armazenamento: "256GB", ram: '8GB', processador: "Snapdragon 888 Qualcomm SM8350", tela: "Super AMOLED" },
-     { id: 387, name: 'Xiaomi Mi 11 Ultra', armazenamento: "256GB", ram: '12GB', processador: "Snapdragon 888 Qualcomm SM8350", tela: "AMOLED" },
+     { id: 387, name: 'Xiaomi Mi 11 Ultra', armazenamento: "256GB", ram: '12GB', processador: "Snapdragon 888 Qualcomm SM8350", tela: "AMOLED" },//
      { id: 388, name: 'Xiaomi Mi Note 10', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 730G Qualcomm SDM730G", tela: "AMOLED" },
      { id: 389, name: 'Xiaomi Mi 9T Pro', armazenamento: "64GB", ram: '6GB', processador: "Snapdragon 855 Qualcomm SDM855", tela: "AMOLED" },
      { id: 390, name: 'Xiaomi Mi 9 Lite', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 710 Qualcomm SDM710", tela: "AMOLED" },
@@ -400,7 +400,7 @@ const data = [
      { id: 400, name: 'Xiaomi Mi 11 Lite', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 732G Qualcomm SM7150", tela: "AMOLED" },
      { id: 401, name: 'Xiaomi Mi 11 Lite 5G', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 780G Qualcomm", tela: "AMOLED" },
      { id: 402, name: 'Xiaomi Mi 11 Pro', armazenamento: "256GB", ram: '12GB', processador: "Snapdragon 888 Qualcomm", tela: "AMOLED" },
-     { id: 403, name: 'Xiaomi Mi Mix Fold', armazenamento: "256GB", ram: '12GB', processador: "Snapdragon 888 Qualcomm SM8350", tela: "OLED" },
+     { id: 403, name: 'Xiaomi Mi Mix Fold', armazenamento: "256GB", ram: '12GB', processador: "Snapdragon 888 Qualcomm SM8350", tela: "OLED" },//
      { id: 404, name: 'Xiaomi Mi 11X', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 870 Qualcomm SM8250-AC", tela: "AMOLED" },
      { id: 405, name: 'Xiaomi Mi 11X Pro', armazenamento: "128GB", ram: '8GB', processador: "Snapdragon 888 Qualcomm SM8350", tela: "AMOLED" },
      { id: 406, name: 'Xiaomi Mi Mix 4', armazenamento: "256GB", ram: '8GB', processador: "Snapdragon 888 Plus Qualcomm SM8350-AC", tela: "AMOLED" },
@@ -536,7 +536,7 @@ const data = [
      { id: 535, name: 'LG G8X ThinQ', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 855 Qualcomm SDM855", tela: "OLED" },
      { id: 536, name: 'LG V50S ThinQ', armazenamento: "256GB", ram: '8GB', processador: "Snapdragon 855 Qualcomm SDM855", tela: "OLED" },
      { id: 537, name: 'LG W10 Alpha', armazenamento: "32GB", ram: '3GB', processador: "Spreadtrum SC9863", tela: "IPS LCD" },
-     { id: 538, name: 'LG Q51', armazenamento: "32GB", ram: '3GB', processador: "Helio P22 MediaTek MT6762", tela: "IPS LCD" },
+     { id: 538, name: 'LG Q51', armazenamento: "32GB", ram: '3GB', processador: "Helio P22 MediaTek MT6762", tela: "IPS LCD" },//
      { id: 539, name: 'LG V60 ThinQ 5G', armazenamento: "128GB", ram: '8GB', processador: "Snapdragon 865 Qualcomm SDM865", tela: "OLED" },
      { id: 540, name: 'LG G8s ThinQ', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 855 Qualcomm SDM855", tela: "OLED" },
      { id: 541, name: 'LG K12 Plus', armazenamento: "32GB", ram: '3GB', processador: "Helio P22 MediaTek MT6762", tela: "TFT LCD" },
@@ -556,10 +556,10 @@ const data = [
      { id: 555, name: 'LG Velvet', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 845 Qualcomm SDM845", tela: "OLED" },
      { id: 556, name: 'LG K31', armazenamento: "32GB", ram: '2GB', processador: "Helio P22 MediaTek MT6762", tela: "IPS LCD" },
      { id: 557, name: 'LG Q92', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 765G Qualcomm SDM765G", tela: "IPS LCD" },
-     { id: 558, name: 'LG K22', armazenamento: "32GB", ram: '2GB', processador: "Snapdragon 215 Qualcomm QM215", tela: "LCD" },
+     { id: 558, name: 'LG K22', armazenamento: "32GB", ram: '2GB', processador: "Snapdragon 215 Qualcomm QM215", tela: "LCD" },//
      { id: 559, name: 'LG Wing', armazenamento: "256GB", ram: '8GB', processador: "Snapdragon 765G Qualcomm SM7250", tela: "P-OLED" },
      { id: 560, name: 'LG Q31', armazenamento: "32GB", ram: '3GB', processador: "Helio P22 MediaTek MT6762", tela: "IPS LCD" },
-     { id: 561, name: 'LG K42', armazenamento: "64GB", ram: '3GB', processador: "Helio P22 MediaTek MT6762", tela: "IPS LCD" },
+     { id: 561, name: 'LG K42', armazenamento: "64GB", ram: '3GB', processador: "Helio P22 MediaTek MT6762", tela: "IPS LCD" },//
      { id: 562, name: 'LG K71', armazenamento: "128GB", ram: '4GB', processador: "Helio P35 MediaTek MT6765", tela: "IPS LCD" },
      { id: 563, name: 'LG K52', armazenamento: "64GB", ram: '3GB', processador: "Helio P22 MediaTek MT6762", tela: "TFT LCD" },
      { id: 564, name: 'LG K62', armazenamento: "64GB", ram: '4GB', processador: "Helio P35 MediaTek MT6765", tela: "TFT LCD" },
@@ -641,10 +641,10 @@ const data = [
      { id: 640, name: 'Motorola Moto E4', armazenamento: "16GB", ram: '2GB', processador: "Cortex-A53 MediaTek MT6737", tela: "IPS LCD" },
      { id: 641, name: 'Motorola Moto E4 Plus', armazenamento: "16GB", ram: '2GB', processador: "Cortex-A53 MediaTek MT6737", tela: "IPS LCD" },
      { id: 642, name: 'Motorola Moto Z2 Force', armazenamento: "128GB", ram: '6GB', processador: "Snapdragon 835 Qualcomm MSM8998", tela: "AMOLED" },
-     { id: 643, name: 'Motorola Moto G5S', armazenamento: "32GB", ram: '2GB', processador: "Snapdragon Qualcomm SDM430", tela: "IPS LCD" },
+     { id: 643, name: 'Motorola Moto G5S', armazenamento: "32GB", ram: '2GB', processador: "Snapdragon Qualcomm SDM430", tela: "IPS LCD" },//
      { id: 644, name: 'Motorola Moto G5S Plus', armazenamento: "32GB", ram: '3GB', processador: "Cortex-A53 Qualcomm Snapdragon 625 MSM8953", tela: "IPS LCD" },
      { id: 645, name: 'Motorola Moto X4', armazenamento: "32GB", ram: '3GB', processador: "Snapdragon 630 Qualcomm SDM630", tela: "LTPS IPS LCD" },
-     { id: 646, name: 'Motorola Moto G6', armazenamento: "32GB", ram: '3GB', processador: "Snapdragon 450 Qualcomm SDM450", tela: "IPS LCD" },
+     { id: 646, name: 'Motorola Moto G6', armazenamento: "32GB", ram: '3GB', processador: "Snapdragon 450 Qualcomm SDM450", tela: "IPS LCD" },//
      { id: 647, name: 'Motorola Moto G6 Plus', armazenamento: "64GB", ram: '4GB', processador: "Snapdragon 630 Qualcomm SDM630", tela: "IPS LCD" },
      { id: 648, name: 'Motorola Moto G6 Play', armazenamento: "32GB", ram: '3GB', processador: "Qualcomm Snapdragon 430", tela: "IPS LCD" },
      { id: 649, name: 'Motorola Moto E5', armazenamento: "16GB", ram: '2GB', processador: "Cortex-A53 Qualcomm Snapdragon 425 MSM8917", tela: "IPS LCD" },
