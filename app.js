@@ -241,7 +241,7 @@ app.use('/admin', admin);
 
 //Outros
 let valido;
-app.use('/filtro', (req, res) => {
+app.use('/filtro', (req, res, next) => {
     const filters = req.query;
     const filteredUsers = data.filter(user => {
       let isValid = true;
@@ -260,6 +260,10 @@ app.use('/filtro', (req, res) => {
     });
    //res.send(filteredUsers);
  
+   if(valido){
+       res.render('erropagina');
+   }
+   else{
     if(req.query.armazenamento == '16GB' && req.query.ram == '128MB' && req.query.processador == "ARM 11" && req.query.tela == "TFT LCD"){
         res.render('teste');
     }
@@ -516,10 +520,10 @@ app.use('/filtro', (req, res) => {
     res.render('filtrar83');
     }
     
-    if(req.query.armazenamento && req.query.ram  && req.query.processador  && req.query.tela){
-        res.render('erropagina');}
+   }
+   res.render('erropagina');
     
-  });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
