@@ -13,6 +13,8 @@ const passport = require('passport');
 require('./config/auth')(passport);
 const db = require('./config/db');
 const data = require('./data');
+const { timeLog, timeStamp } = require('console');
+const res = require('express/lib/response');
 
 //Configurações
 //Sessão
@@ -227,6 +229,10 @@ app.get('/filtrar40', (req, res) => {
 app.get('/testando', (req, res) => {
     res.render('testando');
 });
+app.get('/erro', (req, res) => {
+    res.render('erropagina');
+});
+
 
 
 app.use('/usuarios', usuarios);
@@ -234,8 +240,8 @@ app.use('/usuarios', usuarios);
 app.use('/admin', admin);
 
 //Outros
-let valid;
-app.use('/filtro', (req, res, next) => {
+let valido;
+app.use('/filtro', (req, res) => {
     const filters = req.query;
     const filteredUsers = data.filter(user => {
       let isValid = true;
@@ -243,268 +249,276 @@ app.use('/filtro', (req, res, next) => {
         console.log(key, user[key], filters[key]);
         isValid = isValid && user[key] == filters[key];
         if(isValid){
-            if(req.query.armazenamento == '16GB' && req.query.ram == '128MB' && req.query.processador == "ARM 11" && req.query.tela == "TFT LCD"){
-                res.render('teste');
-            }
-            if(req.query.armazenamento == '32GB' && req.query.ram == '256MB' && req.query.processador == "ARM Cortex A8" && req.query.tela == "TFT LCD"){
-                res.render('filtrar01');
-            }
-            if(req.query.armazenamento == '32GB' && req.query.ram == '512MB' && req.query.processador == "ARM Apple A4" && req.query.tela == "TFT LCD"){
-                res.render('filtrar02');
-            }
-            if(req.query.armazenamento == '64GB' && req.query.ram == '512MB' && req.query.processador == "Apple A5" && req.query.tela == "IPS LCD"){
-                res.render('filtrar03');
-            }
-            if(req.query.armazenamento == '64GB' && req.query.ram == '1GB' && req.query.processador == "Apple A6" && req.query.tela == "IPS LCD"){
-                res.render('filtrar04');
-            }
-            if(req.query.armazenamento == '64GB' && req.query.ram == '1GB' && req.query.processador == "Cyclone Apple A7" && req.query.tela == "IPS LCD"){
-                res.render('filtrar05');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Apple A6" && req.query.tela == "IPS LCD"){
-                res.render('filtrar06');
-            }
-            if(req.query.armazenamento == '128GB' && req.query.ram == '1GB' && req.query.processador == "Apple A8" && req.query.tela == "IPS LCD"){
-                res.render('filtrar07');
-            }
-            if(req.query.armazenamento == '128GB' && req.query.ram == '2GB' && req.query.processador == "Apple A9" && req.query.tela == "IPS LCD"){
-                res.render('filtrar08');
-            }
-            if(req.query.armazenamento == '64GB' && req.query.ram == '2GB' && req.query.processador == "Twister Apple A9" && req.query.tela == "IPS LCD"){
-                res.render('filtrar09');
-            }
-            if(req.query.armazenamento == '256GB' && req.query.ram == '2GB' && req.query.processador == "Apple A10 Fusion" && req.query.tela == "IPS LCD"){
-                res.render('filtrar10');
-            }
-            if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "Quad Core Apple A10 Fusion" && req.query.tela == "IPS LCD"){
-                res.render('filtrar11');
-            }
-            if(req.query.armazenamento == '256GB' && req.query.ram == '2GB' && req.query.processador == "Apple A11 Bionic" && req.query.tela == "IPS LCD"){
-                res.render('filtrar12');
-            }
-            if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A11 Bionic" && req.query.tela == "IPS LCD"){
-                res.render('filtrar13');
-            }
-            if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A11 Bionic" && req.query.tela == "OLED"){
-                res.render('filtrar14');
-            }
-            if(req.query.armazenamento == '512GB' && req.query.ram == '4GB' && req.query.processador == "Apple A12 Bionic" && req.query.tela == "OLED"){
-                res.render('filtrar15');
-            }
-            if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A12 Bionic" && req.query.tela == "IPS LCD"){
-                res.render('filtrar16');
-            }
-            if(req.query.armazenamento == '512GB' && req.query.ram == '4GB' && req.query.processador == "Apple A13 Bionic" && req.query.tela == "LCD"){
-                res.render('filtrar17');
-            }
-            if(req.query.armazenamento == '512GB' && req.query.ram == '4GB' && req.query.processador == "Apple A13 Bionic" && req.query.tela == "OLED"){
-                res.render('filtrar18');
-            }
-            if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A13 Bionic" && req.query.tela == "IPS LCD"){
-                res.render('filtrar19');
-            }
-            if(req.query.armazenamento == '256GB' && req.query.ram == '4GB' && req.query.processador == "Apple A14 Bionic" && req.query.tela == "Super Retina XDR OLED"){
-                res.render('filtrar20');
-            }
-            if(req.query.armazenamento == '512GB' && req.query.ram == '6GB' && req.query.processador == "Apple A14 Bionic" && req.query.tela == "Super Retina XDR OLED"){
-                res.render('filtrar21');
-            }
-            if(req.query.armazenamento == '512GB' && req.query.ram == '4GB' && req.query.processador == "Apple A15 Bionic" && req.query.tela == "Super Retina XDR OLED"){
-                res.render('filtrar22');
-            }
-            if(req.query.armazenamento == '1000GB' && req.query.ram == '6GB' && req.query.processador == "Apple A15 Bionic" && req.query.tela == "Super Retina XDR OLED"){
-                res.render('filtrar23');
-            }
-            if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A15 Bionic" && req.query.tela == "Retina IPS LCD"){
-                res.render('filtrar24');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '512MB' && req.query.processador == "Cortex A8 ARM Hummingbird" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar25');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "ARM Cortex A9" && req.query.tela == "Super AMOLED Plus"){
-                res.render('filtrar26');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '478MB' && req.query.processador == "Cortex A8" && req.query.tela == "Super Clear LCD"){
-                res.render('filtrar27');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "NVDIA Tegra 2 AP20H Dual Core" && req.query.tela == "Super Clear LCD"){
-                res.render('filtrar28');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '512MB' && req.query.processador == "Cortex A8 SAMSUNG Hummingbird" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar29');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "SAMSUNG" && req.query.tela == "Super AMOLED Plus"){
-                res.render('filtrar30');
-            }
-            if(req.query.armazenamento == '160MB' && req.query.ram == '290MB' && req.query.processador == "Broadcom BCM21553" && req.query.tela == "TFT LCD"){
-                res.render('filtrar31');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9 Texas Instruments OMAP 4460" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar32');
-            }
-            if(req.query.armazenamento == '512MB' && req.query.ram == '290MB' && req.query.processador == "Broadcom BCM21553" && req.query.tela == "TFT LCD"){
-                res.render('filtrar33');
-            }
-            if(req.query.armazenamento == '2GB' && req.query.ram == '512MB' && req.query.processador == "Snapdragon Qualcomm MSM8255T" && req.query.tela == "TFT LCD"){
-                res.render('filtrar34');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '768MB' && req.query.processador == "SAMSUNG" && req.query.tela == "PLS LCD"){
-                res.render('filtrar35');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Qualcomm MSM7227" && req.query.tela == "TFT LCD"){
-                res.render('filtrar36');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '768MB' && req.query.processador == "ARM Cortex A9" && req.query.tela == "TFT LCD"){
-                res.render('filtrar37');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "SAMSUNG Exynos 4412" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar38');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '768MB' && req.query.processador == "SAMSUNG" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar39');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '768MB' && req.query.processador == "Snapdragon Qualcomm MSM7227A" && req.query.tela == "TFT LCD"){
-                res.render('filtrar40');
-            }
-            if(req.query.armazenamento == '32GB' && req.query.ram == '2GB' && req.query.processador == "Cortex-A9 SAMSUNG Exynos 4412" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar41');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "Texas Instruments OMAP4460" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar42');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "A9" && req.query.tela == "TFT LCD"){
-                res.render('filtrar43');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "NovaThor U8420" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar44');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "Texas Instruments OMAP 4470" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar45');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9 Broadcom BCM28155" && req.query.tela == "TFT LCD"){
-                res.render('filtrar46');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "ARM Cortex A9" && req.query.tela == "Super AMOLED Plus"){
-                res.render('filtrar47');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9 ST Ericsson NovaThor U8500" && req.query.tela == "TFT LCD"){
-                res.render('filtrar48');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '768MB' && req.query.processador == "Cortex A5 Qualcomm Snapdragon MSM7227A" && req.query.tela == "TFT LCD"){
-                res.render('filtrar49');
-            }
-            if(req.query.armazenamento == '32GB' && req.query.ram == '2GB' && req.query.processador == "SAMSUNG Exynos 5 Octa 5410" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar50');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1.5GB' && req.query.processador == "Snapdragon 400 Qualcomm MSM8930" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar51');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Snapdragon 200 Qualcomm MSM8225Q" && req.query.tela == "TFT LCD"){
-                res.render('filtrar52');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Snapdragon 600 Qualcomm APQ8064T" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar53');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Snapdragon 600 Qualcomm APQ8064T" && req.query.tela == "TFT LCD"){
-                res.render('filtrar54');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1.5GB' && req.query.processador == "Cortex-A9 SAMSUNG Exynos 4212" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar55');
-            }
-            if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "Snapdragon 800 Qualcomm MSM8974" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar56');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '512MB' && req.query.processador == "Snapdragon Qualcomm MSM8255T" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar57');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1.5GB' && req.query.processador == "Cortex-A7 Qualcomm Snapdragon 400 MSM8226" && req.query.tela == "TFT LCD"){
-                res.render('filtrar58');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '768MB' && req.query.processador == "Cortex-A9" && req.query.tela == "TFT LCD"){
-                res.render('filtrar59');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '3GB' && req.query.processador == "Snapdragon 800 Qualcomm MSM8974" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar60');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A7 Broadcom BCM23550" && req.query.tela == "TFT LCD"){
-                res.render('filtrar61');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Cortex-A7 Qualcomm MSM8228" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar62');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Snapdragon Qualcomm MSM7225A" && req.query.tela == "TFT LCD"){
-                res.render('filtrar63');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9" && req.query.tela == "TFT LCD"){
-                res.render('filtrar64');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Krait 400 Qualcomm Snapdragon 801" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar65');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9 Marvell PXA988" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar66');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Cortex-A9 Broadcom BCM21664T" && req.query.tela == "TFT LCD"){
-                res.render('filtrar67');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '1.5GB' && req.query.processador == "Cortex-A7 Qualcomm Snapdragon 400" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar68');
-            }
-            if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "Cortex A53 / Cortex A57 SAMSUNG Exynos 5433" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar69');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A53 Qualcomm Snapdragon 410 MSM8916" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar70');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '1.5GB' && req.query.processador == "Cortex-A7 SAMSUNG Exynos 3 Quad 3470" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar71');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Cortex-A7 Spreadtrum SC6815A" && req.query.tela == "TFT LCD"){
-                res.render('filtrar72');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Cortex-A53 SAMSUNG Exynos 7580" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar73');
-            }
-            if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Cortex-A7 Spreadtrum Dolphin SC7715" && req.query.tela == "TFT LCD"){
-                res.render('filtrar74');
-            }
-            if(req.query.armazenamento == '32GB' && req.query.ram == '2GB' && req.query.processador == "Cortex A15 / Cortex A7 SAMSUNG Exynos 5 Octa 5430" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar75');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1.5GB' && req.query.processador == "Snapdragon 410 Qualcomm Cortex-A53" && req.query.tela == "LCD"){
-                res.render('filtrar76');
-            }
-            if(req.query.armazenamento == '64GB' && req.query.ram == '3GB' && req.query.processador == "Qualcomm Snapdragon 805 APQ8084" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar77');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Cortex-A53 Qualcomm Snapdragon 410" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar78');
-            }
-            if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A53 Qualcomm Snapdragon 410" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar79');
-            }
-            if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A53 Qualcomm Snapdragon 410 MSM8916" && req.query.tela == "TFT LCD"){
-                res.render('filtrar80');
-            }
-            if(req.query.armazenamento == '64GB' && req.query.ram == '4GB' && req.query.processador == "SAMSUNG Exynos 7 Octa 9610" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar81');
-            }
-            if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "SAMSUNG Exynos 7 Octa 7884" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar82');
-            }
-            if(req.query.armazenamento == '128GB' && req.query.ram == '6GB' && req.query.processador == "Snapdragon 675 Qualcomm SDM675" && req.query.tela == "Super AMOLED"){
-                res.render('filtrar83');
-            }
-            else{
-                res.render('erropagina');
-            }
+            
+           
+           
         }
-
+        
       }
+      valido = isValid;
       return isValid;
     });
    //res.send(filteredUsers);
-
+ 
+    if(req.query.armazenamento == '16GB' && req.query.ram == '128MB' && req.query.processador == "ARM 11" && req.query.tela == "TFT LCD"){
+        res.render('teste');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '128MB' && req.query.processador == "ARM 11" && req.query.tela == "TFT LCD"){
+        res.render('teste');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '256MB' && req.query.processador == "ARM Cortex A8" && req.query.tela == "TFT LCD"){
+        res.render('filtrar01');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '512MB' && req.query.processador == "ARM Apple A4" && req.query.tela == "TFT LCD"){
+        res.render('filtrar02');
+    }
+    if(req.query.armazenamento == '64GB' && req.query.ram == '512MB' && req.query.processador == "Apple A5" && req.query.tela == "IPS LCD"){
+        res.render('filtrar03');
+    }
+    if(req.query.armazenamento == '64GB' && req.query.ram == '1GB' && req.query.processador == "Apple A6" && req.query.tela == "IPS LCD"){
+        res.render('filtrar04');
+    }
+    if(req.query.armazenamento == '64GB' && req.query.ram == '1GB' && req.query.processador == "Cyclone Apple A7" && req.query.tela == "IPS LCD"){
+        res.render('filtrar05');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Apple A6" && req.query.tela == "IPS LCD"){
+        res.render('filtrar06');
+    }
+    if(req.query.armazenamento == '128GB' && req.query.ram == '1GB' && req.query.processador == "Apple A8" && req.query.tela == "IPS LCD"){
+        res.render('filtrar07');
+    }
+    if(req.query.armazenamento == '128GB' && req.query.ram == '2GB' && req.query.processador == "Apple A9" && req.query.tela == "IPS LCD"){
+        res.render('filtrar08');
+    }
+    if(req.query.armazenamento == '64GB' && req.query.ram == '2GB' && req.query.processador == "Twister Apple A9" && req.query.tela == "IPS LCD"){
+        res.render('filtrar09');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '2GB' && req.query.processador == "Apple A10 Fusion" && req.query.tela == "IPS LCD"){
+        res.render('filtrar10');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "Quad Core Apple A10 Fusion" && req.query.tela == "IPS LCD"){
+        res.render('filtrar11');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '2GB' && req.query.processador == "Apple A11 Bionic" && req.query.tela == "IPS LCD"){
+        res.render('filtrar12');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A11 Bionic" && req.query.tela == "IPS LCD"){
+        res.render('filtrar13');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A11 Bionic" && req.query.tela == "OLED"){
+        res.render('filtrar14');
+    }
+    if(req.query.armazenamento == '512GB' && req.query.ram == '4GB' && req.query.processador == "Apple A12 Bionic" && req.query.tela == "OLED"){
+        res.render('filtrar15');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A12 Bionic" && req.query.tela == "IPS LCD"){
+        res.render('filtrar16');
+    }
+    if(req.query.armazenamento == '512GB' && req.query.ram == '4GB' && req.query.processador == "Apple A13 Bionic" && req.query.tela == "LCD"){
+        res.render('filtrar17');
+    }
+    if(req.query.armazenamento == '512GB' && req.query.ram == '4GB' && req.query.processador == "Apple A13 Bionic" && req.query.tela == "OLED"){
+        res.render('filtrar18');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A13 Bionic" && req.query.tela == "IPS LCD"){
+        res.render('filtrar19');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '4GB' && req.query.processador == "Apple A14 Bionic" && req.query.tela == "Super Retina XDR OLED"){
+        res.render('filtrar20');
+    }
+    if(req.query.armazenamento == '512GB' && req.query.ram == '6GB' && req.query.processador == "Apple A14 Bionic" && req.query.tela == "Super Retina XDR OLED"){
+        res.render('filtrar21');
+    }
+    if(req.query.armazenamento == '512GB' && req.query.ram == '4GB' && req.query.processador == "Apple A15 Bionic" && req.query.tela == "Super Retina XDR OLED"){
+        res.render('filtrar22');
+    }
+    if(req.query.armazenamento == '1000GB' && req.query.ram == '6GB' && req.query.processador == "Apple A15 Bionic" && req.query.tela == "Super Retina XDR OLED"){
+        res.render('filtrar23');
+    }
+    if(req.query.armazenamento == '256GB' && req.query.ram == '3GB' && req.query.processador == "Apple A15 Bionic" && req.query.tela == "Retina IPS LCD"){
+        res.render('filtrar24');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '512MB' && req.query.processador == "Cortex A8 ARM Hummingbird" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar25');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "ARM Cortex A9" && req.query.tela == "Super AMOLED Plus"){
+        res.render('filtrar26');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '478MB' && req.query.processador == "Cortex A8" && req.query.tela == "Super Clear LCD"){
+        res.render('filtrar27');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "NVDIA Tegra 2 AP20H Dual Core" && req.query.tela == "Super Clear LCD"){
+        res.render('filtrar28');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '512MB' && req.query.processador == "Cortex A8 SAMSUNG Hummingbird" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar29');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "SAMSUNG" && req.query.tela == "Super AMOLED Plus"){
+        res.render('filtrar30');
+    }
+    if(req.query.armazenamento == '160MB' && req.query.ram == '290MB' && req.query.processador == "Broadcom BCM21553" && req.query.tela == "TFT LCD"){
+        res.render('filtrar31');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9 Texas Instruments OMAP 4460" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar32');
+    }
+    if(req.query.armazenamento == '512MB' && req.query.ram == '290MB' && req.query.processador == "Broadcom BCM21553" && req.query.tela == "TFT LCD"){
+        res.render('filtrar33');
+    }
+    if(req.query.armazenamento == '2GB' && req.query.ram == '512MB' && req.query.processador == "Snapdragon Qualcomm MSM8255T" && req.query.tela == "TFT LCD"){
+        res.render('filtrar34');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '768MB' && req.query.processador == "SAMSUNG" && req.query.tela == "PLS LCD"){
+        res.render('filtrar35');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Qualcomm MSM7227" && req.query.tela == "TFT LCD"){
+        res.render('filtrar36');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '768MB' && req.query.processador == "ARM Cortex A9" && req.query.tela == "TFT LCD"){
+        res.render('filtrar37');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "SAMSUNG Exynos 4412" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar38');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '768MB' && req.query.processador == "SAMSUNG" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar39');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '768MB' && req.query.processador == "Snapdragon Qualcomm MSM7227A" && req.query.tela == "TFT LCD"){
+        res.render('filtrar40');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '2GB' && req.query.processador == "Cortex-A9 SAMSUNG Exynos 4412" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar41');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "Texas Instruments OMAP4460" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar42');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "A9" && req.query.tela == "TFT LCD"){
+        res.render('filtrar43');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "NovaThor U8420" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar44');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "Texas Instruments OMAP 4470" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar45');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9 Broadcom BCM28155" && req.query.tela == "TFT LCD"){
+        res.render('filtrar46');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "ARM Cortex A9" && req.query.tela == "Super AMOLED Plus"){
+        res.render('filtrar47');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9 ST Ericsson NovaThor U8500" && req.query.tela == "TFT LCD"){
+        res.render('filtrar48');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '768MB' && req.query.processador == "Cortex A5 Qualcomm Snapdragon MSM7227A" && req.query.tela == "TFT LCD"){
+        res.render('filtrar49');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '2GB' && req.query.processador == "SAMSUNG Exynos 5 Octa 5410" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar50');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1.5GB' && req.query.processador == "Snapdragon 400 Qualcomm MSM8930" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar51');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Snapdragon 200 Qualcomm MSM8225Q" && req.query.tela == "TFT LCD"){
+        res.render('filtrar52');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Snapdragon 600 Qualcomm APQ8064T" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar53');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Snapdragon 600 Qualcomm APQ8064T" && req.query.tela == "TFT LCD"){
+        res.render('filtrar54');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1.5GB' && req.query.processador == "Cortex-A9 SAMSUNG Exynos 4212" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar55');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "Snapdragon 800 Qualcomm MSM8974" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar56');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '512MB' && req.query.processador == "Snapdragon Qualcomm MSM8255T" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar57');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1.5GB' && req.query.processador == "Cortex-A7 Qualcomm Snapdragon 400 MSM8226" && req.query.tela == "TFT LCD"){
+        res.render('filtrar58');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '768MB' && req.query.processador == "Cortex-A9" && req.query.tela == "TFT LCD"){
+        res.render('filtrar59');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '3GB' && req.query.processador == "Snapdragon 800 Qualcomm MSM8974" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar60');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A7 Broadcom BCM23550" && req.query.tela == "TFT LCD"){
+        res.render('filtrar61');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Cortex-A7 Qualcomm MSM8228" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar62');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Snapdragon Qualcomm MSM7225A" && req.query.tela == "TFT LCD"){
+        res.render('filtrar63');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9" && req.query.tela == "TFT LCD"){
+        res.render('filtrar64');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Krait 400 Qualcomm Snapdragon 801" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar65');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A9 Marvell PXA988" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar66');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Cortex-A9 Broadcom BCM21664T" && req.query.tela == "TFT LCD"){
+        res.render('filtrar67');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '1.5GB' && req.query.processador == "Cortex-A7 Qualcomm Snapdragon 400" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar68');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "Cortex A53 / Cortex A57 SAMSUNG Exynos 5433" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar69');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A53 Qualcomm Snapdragon 410 MSM8916" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar70');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '1.5GB' && req.query.processador == "Cortex-A7 SAMSUNG Exynos 3 Quad 3470" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar71');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Cortex-A7 Spreadtrum SC6815A" && req.query.tela == "TFT LCD"){
+        res.render('filtrar72');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Cortex-A53 SAMSUNG Exynos 7580" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar73');
+    }
+    if(req.query.armazenamento == '4GB' && req.query.ram == '512MB' && req.query.processador == "Cortex-A7 Spreadtrum Dolphin SC7715" && req.query.tela == "TFT LCD"){
+        res.render('filtrar74');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '2GB' && req.query.processador == "Cortex A15 / Cortex A7 SAMSUNG Exynos 5 Octa 5430" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar75');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1.5GB' && req.query.processador == "Snapdragon 410 Qualcomm Cortex-A53" && req.query.tela == "LCD"){
+        res.render('filtrar76');
+    }
+    if(req.query.armazenamento == '64GB' && req.query.ram == '3GB' && req.query.processador == "Qualcomm Snapdragon 805 APQ8084" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar77');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '2GB' && req.query.processador == "Cortex-A53 Qualcomm Snapdragon 410" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar78');
+    }
+    if(req.query.armazenamento == '16GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A53 Qualcomm Snapdragon 410" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar79');
+    }
+    if(req.query.armazenamento == '8GB' && req.query.ram == '1GB' && req.query.processador == "Cortex-A53 Qualcomm Snapdragon 410 MSM8916" && req.query.tela == "TFT LCD"){
+        res.render('filtrar80');
+    }
+    if(req.query.armazenamento == '64GB' && req.query.ram == '4GB' && req.query.processador == "SAMSUNG Exynos 7 Octa 9610" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar81');
+    }
+    if(req.query.armazenamento == '32GB' && req.query.ram == '3GB' && req.query.processador == "SAMSUNG Exynos 7 Octa 7884" && req.query.tela == "Super AMOLED"){
+        res.render('filtrar82');
+    }
+   if(req.query.armazenamento == '128GB' && req.query.ram == '6GB' && req.query.processador == "Snapdragon 675 Qualcomm SDM675" && req.query.tela == "Super AMOLED"){
+    res.render('filtrar83');
+    }
+    
+    if(req.query.armazenamento && req.query.ram  && req.query.processador  && req.query.tela){
+        res.render('erropagina');}
+    
   });
 
 const PORT = process.env.PORT || 3000;
